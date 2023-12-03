@@ -1,6 +1,6 @@
 // jest implementation of the api
 import axios from "axios";
-import { fetchMovies, fetchMovie } from "../data-access/tmdb";
+import { fetchMovies, fetchMovie } from "../src/adapters/tmdb";
 import { describe } from "node:test";
 
 describe("data-access", () => {
