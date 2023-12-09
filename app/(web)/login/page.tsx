@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -6,20 +5,17 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Github } from "lucide-react";
-import SigninWithGithub from "@/components/layout/SignInWithGithub";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/config/auth";
+import SignInWithAccount from "@/components/auth/SignInWithAccount";
+import SigninWithGithub from "@/components/auth/SignInWithGithub";
+import SigninWithGoogle from "@/components/auth/SignInWithGoogle";
+import { getAuth } from "@/lib/auth";
 import { redirect } from "next/navigation";
-import SignInForm from "@/components/layout/SigInForm";
 
-export default async function AuthRoute() {
-  const session = await getServerSession(authOptions);
-
-  if (session) {
-    return redirect("/");
+export default async function Login() {
+  const { user } = await getAuth();
+  console.log(user);
+  if (user) {
+    return redirect("/user");
   }
   return (
     <div className="w-screen h-screen flex items-center justify-center">
@@ -32,9 +28,9 @@ export default async function AuthRoute() {
         </CardHeader>
         <CardContent>
           <div className="flex flex-col">
-            <SignInForm />
-
+            <SignInWithAccount />
             <SigninWithGithub />
+            <SigninWithGoogle />
           </div>
         </CardContent>
       </Card>
