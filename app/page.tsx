@@ -1,9 +1,31 @@
-import Image from 'next/image'
+import { getRandomMedia, getTrending } from "@/lib/services/tmdb.api";
+import MediaCarousel from "@/components/carousel/static";
+import MediaHero from "@/components/media/hero";
 
-export default function Home() {
+export const revalidate = 60 * 60 * 24; // 24 hours
+export default async function Home() {
+  const trendingMovie = await getTrending("movie");
+  const trendingTv = await getTrending("tv");
+  const randomItem = await getRandomMedia([
+    ...trendingMovie.results,
+    ...trendingTv.results,
+  ]);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      
+    <main>
+      <MediaHero media={randomItem} />
+      <div className="my-global space-y-5">
+        <MediaCarousel
+          title="Trending Movies"
+          link="/movie/trending"
+          items={trendingMovie.results}
+        />
+        <MediaCarousel
+          title="Trending TV Shows"
+          link="/tv/trending"
+          items={trendingTv.results}
+        />
+      </div>
     </main>
-  )
+  );
 }
