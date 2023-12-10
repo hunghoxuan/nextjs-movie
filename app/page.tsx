@@ -1,6 +1,6 @@
-import { getRandomMedia, getTrending } from "@/lib/services/tmdb.api";
-import MediaCarousel from "@/components/carousel/static";
-import MediaHero from "@/components/media/hero";
+import { getRandomMedia, getTrending } from "@/app/(web)/movies/lib/tmdb.db";
+import ContentCarousel from "@/components/carousel/static";
+import MediaHero from "@/app/(web)/movies/components/media/hero";
 
 export const revalidate = 60 * 60 * 24; // 24 hours
 export default async function Home() {
@@ -15,12 +15,12 @@ export default async function Home() {
     <main>
       <MediaHero media={randomItem} />
       <div className="my-global space-y-5">
-        <MediaCarousel
+        <ContentCarousel
           title="Trending Movies"
           link="/movie/trending"
           items={trendingMovie.results}
         />
-        <MediaCarousel
+        <ContentCarousel
           title="Trending TV Shows"
           link="/tv/trending"
           items={trendingTv.results}

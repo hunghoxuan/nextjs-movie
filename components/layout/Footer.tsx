@@ -1,7 +1,5 @@
-import Image from "next/image";
 import { socialLinks } from "@/config/web";
-import { BiLogoGithub, BiLogoLinkedin, BiLink, BiLogoFacebook, BiLogoGoogle, BiLogoInstagram, BiLogoTiktok } from "react-icons/bi";
-import Link from "next/link";
+import { BiLogoGithub, BiLogoLinkedin, BiLink } from "react-icons/bi";
 
 export default function Footer() {
   return (

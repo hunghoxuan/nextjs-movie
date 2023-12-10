@@ -2,15 +2,15 @@
 
 import { useRef } from "react";
 import { PiCaretLeft, PiCaretRight } from "react-icons/pi";
-import MediaCard from "../media/card";
-import PersonCard from "../person/card";
+import { ContentArray, ContentType } from "@/lib/types";
+import ContentCard from "../card";
 
-export default function MediaCarouselItems({
+export default function ContentCarouselItems({
   items,
   type,
 }: {
-  items: Media[] | Person[];
-  type?: "tv" | "movie" | "person";
+  items: ContentArray;
+  type?: ContentType;
 }) {
   const scrollContainer = useRef<HTMLUListElement>(null);
 
@@ -39,11 +39,7 @@ export default function MediaCarouselItems({
             key={item.id}
             className="w-40 lg:w-60 inline-block mr-2 snap-start whitespace-normal"
           >
-            {item.media_type === "person" || type === "person" ? (
-              <PersonCard person={item as Person} />
-            ) : (
-              <MediaCard media={item as Media} />
-            )}
+            <ContentCard item={item} type={type} />
           </li>
         ))}
       </ul>

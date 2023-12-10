@@ -1,23 +1,20 @@
-import MediaGridBase from "./_base";
-import MediaCard from "../media/card";
-import PersonCard from "../person/card";
+/* eslint-disable */
+import ContentGridBase from "./_base";
+import { ContentType, ContentArray } from "@/lib/types";
+import ContentCard from "../card";
 
-export default function MediaGrid({
+export default function ContentGrid({
   items,
   type,
 }: {
-  items: Media[] | Person[];
-  type?: "tv" | "movie" | "person";
+  items: ContentArray;
+  type?: ContentType;
 }) {
   return (
-    <MediaGridBase>
+    <ContentGridBase>
       {items.map((item) =>
-        item.media_type === "person" || type === "person" ? (
-          <PersonCard key={item.id} person={item as Person} />
-        ) : (
-          <MediaCard key={item.id} media={item as Media} />
-        )
+        <ContentCard item={item} type={type} />
       )}
-    </MediaGridBase>
+    </ContentGridBase>
   );
 }

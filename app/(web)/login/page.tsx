@@ -13,7 +13,6 @@ import { redirect } from "next/navigation";
 
 export default async function Login() {
   const { user } = await getAuth();
-  console.log(user);
   if (user) {
     return redirect("/user");
   }

@@ -1,6 +1,10 @@
-type MediaType = "movie" | "tv";
+export const MediaTypes = ["movie", "tv"] as const;
+export const PersonTypes = ["person"] as const;
 
-interface Media {
+export type MediaType = typeof MediaTypes[number];
+export type PersonType = typeof PersonTypes[number];
+
+export interface Media {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];
@@ -18,7 +22,7 @@ interface Media {
   video: boolean;
   vote_average: number;
   vote_count: number;
-  media_type?: MediaType;
+  content_type?: MediaType;
   // details
   homepage?: string;
   runtime?: number;
@@ -51,18 +55,18 @@ interface Media {
   character?: string;
 }
 
-interface Credit extends Media {
+export interface Credit extends Media {
   character: string;
   job: string;
   department: string;
   profile_path: string;
   credit_id: string;
   order: number;
-  media_type: MediaType;
+  content_type: MediaType;
   episode_count?: number;
 }
 
-interface Person {
+export interface Person {
   adult: boolean;
   gender: number;
   id: number;
@@ -72,7 +76,7 @@ interface Person {
   profile_path: string;
   popularity: number;
   cast_id?: number;
-  media_type?: "person";
+  content_type?: PersonType;
   job?: string;
   character?: string;
   credit_id: string;
@@ -93,7 +97,7 @@ interface Person {
   };
 }
 
-interface Episode {
+export interface Episode {
   air_date?: string;
   crew: Person[];
   episode_number: number;
@@ -108,7 +112,7 @@ interface Episode {
   vote_count?: number;
 }
 
-interface Video {
+export interface Video {
   iso_639_1: string;
   iso_3166_1: string;
   name: string;
@@ -121,7 +125,7 @@ interface Video {
   id: string;
 }
 
-interface Image {
+export interface Image {
   aspect_ratio: number;
   height: number;
   iso_639_1: string;
@@ -131,7 +135,7 @@ interface Image {
   width: number;
 }
 
-interface ExternalIds {
+export interface ExternalIds {
   imdb_id?: string;
   facebook_id?: string;
   instagram_id?: string;
@@ -142,29 +146,22 @@ interface ExternalIds {
   homepage?: string;
 }
 
-interface Season {
+export interface Season {
   air_date?: string;
   _id: string;
   episodes: Episode[];
 }
 
-interface PageResult<T> {
-  page: number;
-  results: T[];
-  total_pages: number;
-  total_results: number;
-}
-
-interface GenreList {
+export interface GenreList {
   genres: Genre[];
 }
 
-interface Genre {
+export interface Genre {
   id: number;
   name: string;
 }
 
-type Query =
+export type Query =
   | "top_rated"
   | "on_the_air"
   | "airing_today"
@@ -173,17 +170,11 @@ type Query =
   | "upcoming"
   | "trending";
 
-interface QueryItem {
-  type: MediaType;
-  title: string;
-  query: string;
-}
-
-interface Credits {
+export interface Credits {
   cast: Media[];
 }
 
-type MovieProps = {
+export type MovieProps = {
   id: number|string;
   title: string;
   overview: string;

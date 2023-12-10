@@ -7,7 +7,7 @@ import { Icon } from "@/components/ui/icon";
 import UserNav from "../UserNav";
 import Logo from "../Logo";
 
-export default function NavbarVertical({ logo, menus, user } : MenuProps) {
+export default function NavbarVertical({ menus, user } : MenuProps) {
   const pathname = usePathname();
   return (
     <nav className="flex items-center justify-evenly h-full lg:flex-col lg:justify-start">
