@@ -28,9 +28,11 @@ export default async function Login() {
         <CardContent>
           <div className="flex flex-col">
             <SignInWithAccount />
+          </div>
+          <div className="flex flex-col mt-15">
             <SigninWithGithub />
             <SigninWithGoogle />
-          </div>
+          </div>  
         </CardContent>
       </Card>
     </div>

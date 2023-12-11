@@ -1,6 +1,6 @@
 import ContentCarouselDynamic from "@/components/carousel/dynamic";
-import MediaHero from "@/app/(web)/movies/components/media/hero";
-import { getRandomMedia, getTrending, lists } from "@/app/(web)/movies/lib/tmdb.db";
+import MediaHero from "../components/media/hero";
+import { getRandomMedia, getTrending, lists } from "../lib/tmdb.db";
 import { MediaType } from "@/lib/types/media";
 
 export const revalidate = 60 * 60 * 24; // 24 hours

@@ -1,7 +1,6 @@
 import axios from "axios";
-import { Media, MediaType, GenreList, MediaTypes, Season, Person, Query } from "@/lib/types/media.d";
-import { IService, QueryItem, Taxonomy, PageResult} from "@/lib/types";
-import { NextRequest, NextResponse } from "next/server";
+import { Media, MediaType, GenreList, Season, Person, Query } from "@/lib/types/media.d";
+import { QueryItem, PageResult} from "@/lib/types";
 
 export const apiUrl = "https://api.themoviedb.org/3";
 
@@ -99,51 +98,3 @@ export const getGenre = (
     page,
     with_genres: id,
   });
-
-/* eslint-disable */
-export const tmdbService : IService<Media, MediaType | string> = {
-  get: (id: string | number, type?: MediaType | string) => getMedia(type || 'movie', id.toString()),
-  search: (query: string, page?: number | string) => getSearch(query, page),
-  from: function (item: any): Media | Media[] {
-    throw new Error("Function not implemented.");
-  },
-  getTaxonomies: async function (type?: MediaType | string): Promise<Taxonomy[]> {
-    const genre = await getGenreList(type || 'movie');
-    return genre.genres.map((g) => ({ id: g.id, name: g.name }));
-  },
-  searchByTaxonomy: async function (id: string | number, page: string | number, type?: MediaType | string): Promise<PageResult<Media>> {
-    const genre = await getGenreList(type || 'movie');
-    const data = await getGenre(type || 'movie', id, page);
-    const taxonomy = genre.genres.find((g) => g.id == id);
-    return { ...data, taxonomy };
-  },
-  getImageUrl: function (path: string, size?: number | undefined): string {
-    return `${apiImgUrl}/${path}`;
-  },
-  getMiddleware: function (req: NextRequest): NextResponse | null {
-    const { pathname } = req.nextUrl;
-
-    const mediaType = pathname.split("/")[1] as MediaType;
-    if (MediaTypes.includes(mediaType)) {
-        const url = req.nextUrl.clone();
-        url.pathname = `/movies${pathname}`;
-        return NextResponse.rewrite(url);
-    }
-    return null;
-  },
-  getVideoUrl: function (path: string): string {
-    throw new Error("Function not implemented.");
-  },
-  getBaseUrl: function (): string {
-    return apiUrl;
-  },
-  update: function (item: Media | Media[], type?: string | undefined): Promise<Media | Media[]> {
-    throw new Error("Function not implemented.");
-  },
-  create: function (item: Media | Media[], type?: string | undefined): Promise<Media | Media[]> {
-    throw new Error("Function not implemented.");
-  },
-  delete: function (id: string | number | Media, type?: string | undefined): Promise<Media> {
-    throw new Error("Function not implemented.");
-  }
-}

@@ -1,15 +1,15 @@
 "use client";
 
-import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 
-import { tmdbService } from "../../lib/tmdb.db";
 import ContentCard from "../card";
 import { Media } from "@/lib/types/media";
-import Spinner from "@/components/ui/spinner";
+import { getQuery } from "../../lib/tmdb.db";
+import { QueryItem } from "@/lib/types";
+import Image from "next/image";
 
-function LoadMore({ page, totalPages }: { page: number, totalPages: number}) {
+async function LoadMore({ page, query }: { page: number, query: QueryItem}) {
   const { ref, inView } = useInView();
 
   const [data, setData] = useState<Media[]>([]);
@@ -21,11 +21,10 @@ function LoadMore({ page, totalPages }: { page: number, totalPages: number}) {
       // Add a delay of 500 milliseconds
       const delay = 500;
 
-      const timeoutId = setTimeout(() => {
-        tmdbService.search("popular", page, "movie").then((res) => {
-          setData([...data, ...res.results]);
-          page++;
-        });
+      const timeoutId = setTimeout(async () => {
+        page += 1;
+        const dt = await getQuery(query, page);
+        setData([...data, ...dt.results]);
 
         setIsLoading(false);
       }, delay);
@@ -38,14 +37,20 @@ function LoadMore({ page, totalPages }: { page: number, totalPages: number}) {
   return (
     <>
       <section className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10">
-        {data.map((item: Media, index: number) => (
+        { data.map((item) => (
           <ContentCard key={item.id} item={item} />
         ))}
       </section>
       <section className="flex justify-center items-center w-full">
         <div ref={ref}>
           {inView && isLoading && (
-            <Spinner />
+            <Image
+            src="./spinner.svg"
+            alt="spinner"
+            width={56}
+            height={56}
+            className="object-contain"
+          />
           )}
         </div>
       </section>

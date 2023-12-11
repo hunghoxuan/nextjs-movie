@@ -1,4 +1,4 @@
-import { getMediaEpisodes } from "@/app/(web)/movies/lib/tmdb.db";
+import { getMediaEpisodes } from "../../lib/tmdb.db";
 import EpisodeGrid from "../episode/grid";
 import EpisodeCard from "../episode/card";
 import SeasonSelect from "../episode/select";

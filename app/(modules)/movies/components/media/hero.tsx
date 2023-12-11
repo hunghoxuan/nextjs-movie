@@ -7,7 +7,7 @@ import { PiPlayCircleLight, PiPlayFill } from "react-icons/pi";
 import Image from "next/image";
 import Link from "next/link";
 import IframeModal from "@/components/ui/modal";
-import Rating from "@/app/(web)/movies/components/media/rating";
+import Rating from "./rating";
 import { Media } from "@/lib/types/media";
 
 

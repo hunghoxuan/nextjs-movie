@@ -1,6 +1,6 @@
-import { tmdbService } from "@/app/(web)/movies/lib/tmdb.db";
-import MediaDetails from "@/app/(web)/movies/components/media/details";
-import MediaHero from "@/app/(web)/movies/components/media/hero";
+import { service } from "@/config";
+import MediaDetails from "../../../components/media/details";
+import MediaHero from "../../..//components/media/hero";
 import { MediaType } from "@/lib/types/media";
 import ContentCarousel from "@/components/carousel/static";
 
@@ -10,7 +10,7 @@ export default async function Detail({
 }: {
   params: { type: MediaType; id: string };
 }) {
-  const data = await tmdbService.get(params.id, params.type);
+  const data = await service.db.get(params.id, params.type);
   if (!data) throw new Error("Media not found");
 
   return (

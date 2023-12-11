@@ -1,5 +1,5 @@
 import ContentGridDynamic from "@/components/grid/dynamic";
-import { lists } from "@/app/(web)/movies/lib/tmdb.db";
+import { lists } from "../../lib/tmdb.db";
 import { MediaType, Query } from "@/lib/types/media";
 
 export const revalidate = 60 * 60 * 24; // 24 hours
@@ -8,7 +8,7 @@ export default function QueryPage({
   searchParams,
 }: {
   params: { query: Query; type: MediaType };
-  searchParams: { page: string };
+  searchParams: { page: number };
 }) {
   const item = lists[params.type].find((item) => item.query === params.query);
 
