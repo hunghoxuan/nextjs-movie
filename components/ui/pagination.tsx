@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LoadMore from "@/app/(web)/movies/components/ui/LoadMore";
 
 export default function Pagination({
   query,
@@ -12,6 +13,8 @@ export default function Pagination({
   page = parseInt('' + page);
   return (
     <div className="flex justify-center items-center mt-6">
+            <LoadMore page={page} totalPages={totalPages} />
+
       <Link
         href={{
           query: { ...query, page: page - 1 },
