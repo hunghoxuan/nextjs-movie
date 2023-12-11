@@ -1,15 +1,14 @@
 function authenticate(username: string, password: string) {
-  if(username !== "admin" && password !== "admin") {
-    return null;
+  if (process.env.DEMO_USER && username == process.env.DEMO_USER && password == process.env.DEMO_USER) {
+    return { 
+      id: "1",
+      name: "Guest", 
+      email: "user@example.com"
+    }; 
   }
 
-  const user = { 
-    id: "9001",
-    name: "Web Admin", 
-    email: "admin@example.com"
-  }; 
+  throw new Error("Invalid credentials");
   
-  return user; 
   // const user = await prisma.user.findUnique({
   //   where: {
   //     email: username,
