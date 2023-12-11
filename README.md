@@ -31,6 +31,7 @@ This project demonstrates how to combine some cool techstacks for NextJS project
 
 ### Install this repo
 Run the follow three commands to clone this repo and install its dependencies:
+
 ```
 git clone https://github.com/hunghoxuan/nextjs-movie.git
 cd nextjs-movie
