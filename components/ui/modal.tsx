@@ -32,6 +32,6 @@ export default function IframeModal({ src, isOpen, close }: Props) {
           />
         </div>
       ),
-      document.querySelector("body")!
+      document.querySelector("body")!,
     );
 }

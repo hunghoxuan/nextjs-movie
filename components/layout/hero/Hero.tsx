@@ -1,10 +1,23 @@
 import Image from "next/image";
 
-function Hero({ title, icon, image, background_css }: { title: string; icon?: string, image?: string, background_css?: string}) {
+function Hero({
+  title,
+  icon,
+  image,
+  background_css,
+}: {
+  title: string;
+  icon?: string;
+  image?: string;
+  background_css?: string;
+}) {
   return (
-    <header className={`${background_css} bg-hero bg-center bg-cover bg-no-repeat sm:p-16 py-16 px-8 flex justify-center lg:items-center max-lg:flex-col w-full sm:gap-16 gap-0`}>
+    <header
+      className={`${background_css} bg-hero bg-center bg-cover bg-no-repeat sm:p-16 py-16 px-8 flex justify-center lg:items-center max-lg:flex-col w-full sm:gap-16 gap-0`}
+    >
       <div className="flex-1 flex flex-col gap-10">
-        icon && <Image
+        icon &&{" "}
+        <Image
           src={icon || "/logo.svg"}
           alt="logo"
           width={101}
@@ -16,7 +29,8 @@ function Hero({ title, icon, image, background_css }: { title: string; icon?: st
         </h1>
       </div>
       <div className="lg:flex-1 relative w-full h-[50vh] justify-center">
-        image && <Image src={image || ''} alt="anime" fill className="object-contain" />
+        image &&{" "}
+        <Image src={image || ""} alt="anime" fill className="object-contain" />
       </div>
     </header>
   );

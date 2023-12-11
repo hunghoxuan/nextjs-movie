@@ -17,15 +17,15 @@ export default function PersonDetails({ person }: { person: Person }) {
       results = person.combined_credits?.cast;
     } else if (department === "Directing") {
       results = person.combined_credits?.crew?.filter(
-        (item) => item.department === "Directing"
+        (item) => item.department === "Directing",
       );
     } else if (department === "Production") {
       results = person.combined_credits?.crew?.filter(
-        (item) => item.department === "Production"
+        (item) => item.department === "Production",
       );
     } else if (department === "Writing" || department === "Creator") {
       results = person.combined_credits?.crew?.filter(
-        (item) => item.department === "Writing"
+        (item) => item.department === "Writing",
       );
     }
 
@@ -43,7 +43,7 @@ export default function PersonDetails({ person }: { person: Person }) {
 
     // sort by popularity
     results.sort((a: Credit, b: Credit) =>
-      a.vote_count > b.vote_count ? -1 : 1
+      a.vote_count > b.vote_count ? -1 : 1,
     );
 
     return results;

@@ -1,18 +1,22 @@
-import { MenuProps, IconEnum } from "@/lib/types/web.d"
+import { MenuProps, IconEnum } from "@/lib/types/web.d";
 import type { Metadata } from "next";
 import Logo from "../public/logo.svg";
-import { tmdbWebService, tmdbService } from "@/app/(modules)/movies/lib/services";
+import {
+  tmdbWebService,
+  tmdbService,
+} from "@/app/(modules)/movies/lib/services";
 import { IService } from "@/lib/types";
 
-// config services here. 
+// config services here.
 export const service: IService = {
-  db: tmdbService, 
-  web: tmdbWebService
-}
+  db: tmdbService,
+  web: tmdbWebService,
+};
 
 export const metaData: Metadata = {
   title: "NextJS Movie",
-  description: "Demonstration of NextJS with TypeScript, TailwindCSS, and NextAuth",
+  description:
+    "Demonstration of NextJS with TypeScript, TailwindCSS, and NextAuth",
 };
 
 export const socialLinks = {
@@ -21,12 +25,13 @@ export const socialLinks = {
   facebook: "https://www.facebook.com",
   website: "https://wwww.google.com",
   copyright: "2023 FFW Assignment. All rights reserved",
-}
+};
 
 export const mainMenu: MenuProps = {
   logo: Logo,
   orientation: "horizontal",
-  menus: [{
+  menus: [
+    {
       name: "Home",
       href: "/",
       icon: IconEnum.HOME,
@@ -52,10 +57,10 @@ export const mainMenu: MenuProps = {
       icon: IconEnum.SEARCH,
     },
   ],
-}
+};
 
 export const userMenu: MenuProps = {
   logo: Logo,
   orientation: "vertical",
   menus: mainMenu.menus, // could be different menu items
-}
+};

@@ -10,7 +10,6 @@ import IframeModal from "@/components/ui/modal";
 import Rating from "./rating";
 import { Media } from "@/lib/types/media";
 
-
 export default function MediaHero({ media }: { media: Media }) {
   const [isOpen, setIsOpen] = useState(false);
   const trailer = getTrailer(media);

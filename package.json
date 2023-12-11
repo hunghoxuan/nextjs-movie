@@ -8,7 +8,15 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest --watch",
+    "prettier": "prettier --write --ignore-unknown .",
+    "prettier:check": "prettier --check --ignore-unknown .",
     "postinstall": "prisma generate"
+  },
+  "git": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
     "axios": "^1.6.2",

@@ -16,7 +16,8 @@ export default function SigninWithGoogle() {
       className="mt-6"
       variant="outline"
     >
-      <Image src={GooogleIcon} alt="Google icon" className="w-6 h-6 mr-4" /> Login with Gmail 
+      <Image src={GooogleIcon} alt="Google icon" className="w-6 h-6 mr-4" />{" "}
+      Login with Gmail
     </Button>
   );
 }
