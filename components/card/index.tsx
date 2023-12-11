@@ -1,5 +1,5 @@
-import PersonCard  from "../../app/(web)/movies/components/person/card";
-import MediaCard from "../../app/(web)/movies/components/media/card";
+import PersonCard  from "../../app/(modules)/movies/components/person/card";
+import MediaCard from "../../app/(modules)/movies/components/media/card";
 
 import { ContentType, Content } from "@/lib/types";
 import { Media, Person } from "@/lib/types/media";

@@ -28,7 +28,8 @@ export default function SignInWithAccount() {
       });
     }
 
-    return redirect(`${window.location.origin}/`);
+    window.location.href = `${window.location.origin}/user`; // use this to refresh a page.
+    // return redirect(`${window.location.origin}/user`);
   }
   return (
     <form action={signInWithAccount}>

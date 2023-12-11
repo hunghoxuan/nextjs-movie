@@ -1,4 +1,4 @@
-import { socialLinks } from "@/config/web";
+import { socialLinks } from "@/config";
 import { BiLogoGithub, BiLogoLinkedin, BiLink } from "react-icons/bi";
 
 export default function Footer() {
