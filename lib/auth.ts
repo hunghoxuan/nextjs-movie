@@ -5,7 +5,7 @@ import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import prisma from "./prisma";
-import { userService } from "./services/user.api";
+import { userService } from "./services/user.db";
 import { getServerSession } from "next-auth";
 import type {
   GetServerSidePropsContext,
@@ -13,8 +13,9 @@ import type {
   NextApiResponse,
 } from "next";
 import { unstable_noStore } from "next/cache";
-import NextAuth, { DefaultSession } from "next-auth";
+import { DefaultSession } from "next-auth";
 
+/* eslint-disable */
 declare module "next-auth" {
   interface Session extends DefaultSession {
     user: {
@@ -57,7 +58,7 @@ export const authOptions = {
         },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials, req) {
+      async authorize(credentials) {
         if (!credentials?.email || !credentials.password) {
           return null;
         }
@@ -77,13 +78,13 @@ export const authOptions = {
   ],
   
   callbacks: {
-    async jwt({ token, account, profile }) { 
+    async jwt({ token, account }) { 
       if (account && account.type === "credentials") {
         token.userId = account.providerAccountId; // this is Id that coming from authorize() callback 
       }
       return token;
     },
-    async session({ session, token, user }) {
+    async session({ session, token }) {
       if (token) {
         session.user.id = token.userId;
         session.user.name = token.name;
@@ -108,7 +109,7 @@ export async function getAuth(
   return { 
     user: session?.user && { 
       id: session.user.id,
-      userId: session.user.userId,
+      userId: session.user.id,
       name: session.user.name, 
       email: session.user.email, 
       image: session.user.image 

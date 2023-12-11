@@ -1,4 +1,4 @@
-export default function MediaGridBase({
+export default function ContentGridBase({
   children,
 }: {
   children: React.ReactNode;

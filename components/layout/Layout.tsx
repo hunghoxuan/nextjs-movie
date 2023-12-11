@@ -1,4 +1,4 @@
-import Navbar from "@/components/layout/Navbar";
+import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/Footer";
 import { ContextProvider } from "@/components/context/context-provider";
 import { Toaster } from "@/components/ui/toaster";

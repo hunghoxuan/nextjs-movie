@@ -1,5 +1,5 @@
-import { getSearch } from "@/lib/services/tmdb.api";
-import MediaGrid from "@/components/grid/static";
+import { getSearch } from "@/app/(web)/movies/lib/tmdb.db";
+import ContentGrid from "@/components/grid/static";
 import Pagination from "@/components/ui/pagination";
 
 export default async function SearchResults({
@@ -23,7 +23,7 @@ export default async function SearchResults({
             Showing results for &quot;{query}&quot;
           </h1>
 
-          <MediaGrid items={data.results} />
+          <ContentGrid items={data.results} />
           <Pagination
             page={page}
             totalPages={data.total_pages}

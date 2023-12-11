@@ -1,7 +1,7 @@
-import { languages } from "./types/languages";
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
- 
+import { languages } from "./types/languages"
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
@@ -44,25 +44,6 @@ export function getYear(date: string) {
 
 export function numberWithCommas(x: number) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-export function directors(item: Media) {
-  const people = item.credits?.crew;
-
-  if (people) {
-    return people.filter((person) => person.job === "Director");
-  }
-}
-export function getVideo(item?: Video) {
-  if (!item?.key) return null;
-  return `https://www.youtube.com/embed/${item.key}?rel=0&showinfo=0&autoplay=0`;
-}
-
-export function getTrailer(item: Media) {
-  const trailer = item.videos?.results?.find(
-    (video) => video.type === "Trailer"
-  );
-  return getVideo(trailer);
 }
 
 export function formatContent(string: string) {

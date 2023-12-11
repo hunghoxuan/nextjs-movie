@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function MediaCarouselBase({
+export default function ContentCarouselBase({
   title,
   children,
   link,

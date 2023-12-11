@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Bell, Search } from "lucide-react";
@@ -9,7 +8,7 @@ import { MenuProps } from "@/lib/types/web";
 import { Icon } from "@/components/ui/icon";
 import Logo from "../Logo";
 
-export default function NavbarTop({ logo, menus, user } : MenuProps) {
+export default function NavbarTop({ menus, user } : MenuProps) {
   const pathname = usePathname();
   return (
     <div className="w-full max-w-7xl mx-auto items-center justify-between px-5 sm:px-6 py-5 lg:px-8 flex">
@@ -17,7 +16,7 @@ export default function NavbarTop({ logo, menus, user } : MenuProps) {
         <Logo className="w-32" />
         <ul className="lg:flex gap-x-4 ml-14 hidden">
           {menus.map((link, idx) => (
-            <div key={idx}>
+            <div key={idx} className="mr-10">
                 <li className="flex flex-col items-center justify-center">
                   <Link
                     href={link.href}

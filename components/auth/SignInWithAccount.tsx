@@ -11,7 +11,6 @@ import { useState } from "react";
 export default function SignInWithAccount() {
   const [email, setEmail] = useState<null | string>(null);
   const [password, setPassword] = useState<null | string>(null);
-  // console.log(`${window.location.origin}`, email, password);
 
   async function signInWithAccount() {
     const signInResult = await signIn("credentials", {
@@ -20,8 +19,6 @@ export default function SignInWithAccount() {
       callbackUrl: `${window.location.origin}/`,
       redirect: false,
     });
-
-    console.log('result', signInResult);
 
     if (!signInResult?.ok) {
       return toast({

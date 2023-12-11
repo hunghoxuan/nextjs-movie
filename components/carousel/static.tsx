@@ -1,20 +1,21 @@
-import MediaCarouselBase from "./_base";
-import MediaCarouselItems from "./_items";
+import { ContentArray, ContentType } from "@/lib/types";
+import ContentCarouselBase from "./_base";
+import ContentCarouselItems from "./_items";
 
-export default function MediaCarousel({
+export default function ContentCarousel({
   title,
   link,
   items,
   type,
 }: {
-  type?: "movie" | "tv" | "person";
+  type?: ContentType;
   title?: React.ReactNode | string;
   link?: string;
-  items: Media[] | Person[];
+  items: ContentArray;
 }) {
   return (
-    <MediaCarouselBase title={title} link={link}>
-      <MediaCarouselItems items={items} type={type} />
-    </MediaCarouselBase>
+    <ContentCarouselBase title={title} link={link}>
+      <ContentCarouselItems items={items} type={type} />
+    </ContentCarouselBase>
   );
 }

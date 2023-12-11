@@ -1,5 +1,6 @@
 "use client";
-import { ThemeProvider } from "./theme-provider";
+// import { ThemeProvider } from "./theme-provider";
+import { ThemeProvider } from "next-themes";
 import { SessionProvider } from "next-auth/react";
 
 export function ContextProvider({ children }: { children: React.ReactNode }) {

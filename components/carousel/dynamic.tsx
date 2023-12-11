@@ -1,9 +1,10 @@
-import { getQuery } from "@/lib/services/tmdb.api";
-import MediaCarouselBase from "./_base";
-import MediaCarouselItems from "./_items";
+import { getQuery } from "@/app/(web)/movies/lib/tmdb.db";
+import ContentCarouselItems from "./_items";
+import { QueryItem } from "@/lib/types";
+import ContentCarouselBase from "./_base";
 
 export const revalidate = 60 * 60 * 24; // 24 hours
-export default async function MediaDynamicCarousel({
+export default async function ContentCarouselDynamic({
   query,
 }: {
   query: QueryItem;
@@ -11,11 +12,11 @@ export default async function MediaDynamicCarousel({
   const data = await getQuery(query);
 
   return (
-    <MediaCarouselBase
+    <ContentCarouselBase
       title={query.title}
       link={`/${query.type}/${query.query}`}
     >
-      <MediaCarouselItems items={data.results} />
-    </MediaCarouselBase>
+      <ContentCarouselItems items={data.results} />
+    </ContentCarouselBase>
   );
 }
