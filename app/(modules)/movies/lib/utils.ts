@@ -14,7 +14,7 @@ export function getVideo(item?: Video) {
 
 export function getTrailer(item: Media) {
   const trailer = item.videos?.results?.find(
-    (video) => video.type === "Trailer"
+    (video) => video.type === "Trailer",
   );
   return getVideo(trailer);
 }

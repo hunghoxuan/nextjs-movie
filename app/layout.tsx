@@ -5,10 +5,10 @@ import Layout from "@/components/layout/Layout";
 import { getAuth } from "@/lib/auth";
 
 const inter = Inter({
-  variable: '--font-inter',
-  subsets: ['latin'],
-  display: 'swap',
-})
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata = metaData;
 export default async function RootLayout({
@@ -22,9 +22,7 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <Layout menu={menu}>
-          {children}
-        </Layout>
+        <Layout menu={menu}>{children}</Layout>
       </body>
     </html>
   );

@@ -12,7 +12,11 @@ export default async function QueryPage({
   params: { id: number; type: MediaType };
   searchParams: { page: string };
 }) {
-  const data = await tmdbService.searchByTaxonomy(params.id, searchParams.page, params.type);
+  const data = await tmdbService.searchByTaxonomy(
+    params.id,
+    searchParams.page,
+    params.type,
+  );
   const name = data.taxonomy ? (data.taxonomy as Taxonomy).name : "";
 
   return (

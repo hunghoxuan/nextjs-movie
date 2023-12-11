@@ -16,8 +16,7 @@ export const config = {
 
 export default async function middleware(req: NextRequest) {
   const res = service.web.getResponse(req);
-  if (res)
-    return res;
-  
+  if (res) return res;
+
   return NextResponse.next();
 }

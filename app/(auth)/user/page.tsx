@@ -9,27 +9,17 @@ export default async function UserDashboard() {
         <h1 className="text-4xl mb-8">Dashboard</h1>
         <Tabs defaultValue="items">
           <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="profile">
-              Profile
-            </TabsTrigger>
-            <TabsTrigger value="favourite">
-              Favourite
-            </TabsTrigger>
-            <TabsTrigger value="history">
-              History
-            </TabsTrigger>
+            <TabsTrigger value="profile">Profile</TabsTrigger>
+            <TabsTrigger value="favourite">Favourite</TabsTrigger>
+            <TabsTrigger value="history">History</TabsTrigger>
           </TabsList>
           <TabsContent value="profile">
-            ID: {user?.id} <br/>
-            Name: {user?.name} <br/>
-            Email: {user?.email} <br/>
+            ID: {user?.id} <br />
+            Name: {user?.name} <br />
+            Email: {user?.email} <br />
           </TabsContent>
-          <TabsContent value="favourite">
-            TO DO
-          </TabsContent>
-          <TabsContent value="history">
-            TO DO
-          </TabsContent>
+          <TabsContent value="favourite">TO DO</TabsContent>
+          <TabsContent value="history">TO DO</TabsContent>
         </Tabs>
       </div>
     </main>

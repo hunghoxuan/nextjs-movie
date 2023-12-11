@@ -3,7 +3,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "TMDB Movie",
-  description: "Demonstration of NextJS with TypeScript, TailwindCSS, and NextAuth",
+  description:
+    "Demonstration of NextJS with TypeScript, TailwindCSS, and NextAuth",
 };
 
 export default async function RootLayout({
@@ -11,9 +12,5 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <main>
-      {children}
-    </main>
-  );
+  return <main>{children}</main>;
 }

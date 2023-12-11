@@ -9,7 +9,7 @@ export default function Pagination({
   page: string | number;
   totalPages: number;
 }) {
-  page = parseInt('' + page);
+  page = parseInt("" + page);
   return (
     <div className="flex justify-center items-center mt-6">
       <Link

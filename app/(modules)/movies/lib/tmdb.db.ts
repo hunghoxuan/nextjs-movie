@@ -1,6 +1,13 @@
 import axios from "axios";
-import { Media, MediaType, GenreList, Season, Person, Query } from "@/lib/types/media.d";
-import { QueryItem, PageResult} from "@/lib/types";
+import {
+  Media,
+  MediaType,
+  GenreList,
+  Season,
+  Person,
+  Query,
+} from "@/lib/types/media.d";
+import { QueryItem, PageResult } from "@/lib/types";
 
 export const apiUrl = "https://api.themoviedb.org/3";
 
@@ -37,10 +44,12 @@ export const fetchApi = (url: string, params?: any) =>
     .then((res) => res.data)
     .catch((err) => {
       throw err;
-    })
-;
+    });
 
-export const getMedia = (type: MediaType | string, id: string): Promise<Media> =>
+export const getMedia = (
+  type: MediaType | string,
+  id: string,
+): Promise<Media> =>
   fetchApi(`/${type}/${id}`, {
     append_to_response: "credits,images,videos,recommendations,episodes",
     include_image_language: "en",
@@ -63,7 +72,7 @@ export const getPerson = (id: string): Promise<Person> =>
 
 export const getSearch = (
   query: string,
-  page?: number | string
+  page?: number | string,
 ): Promise<PageResult<Media & Person>> =>
   fetchApi("/search/multi", {
     query,
@@ -72,7 +81,7 @@ export const getSearch = (
 
 export const getTrending = (
   type: MediaType,
-  page?: number | string
+  page?: number | string,
 ): Promise<PageResult<Media>> =>
   fetchApi(`/trending/${type}/week`, {
     page,
@@ -80,7 +89,7 @@ export const getTrending = (
 
 export const getQuery = (
   query: QueryItem,
-  page?: number | string
+  page?: number | string,
 ): Promise<PageResult<Media>> =>
   fetchApi(`/${query.type}/${query.query}`, {
     page,
@@ -92,7 +101,7 @@ export const getGenreList = (type: MediaType | string): Promise<GenreList> =>
 export const getGenre = (
   type: MediaType | string,
   id: number | string,
-  page?: number | string
+  page?: number | string,
 ): Promise<PageResult<Media>> =>
   fetchApi(`/discover/${type}/`, {
     page,

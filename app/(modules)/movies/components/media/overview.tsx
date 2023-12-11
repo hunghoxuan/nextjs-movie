@@ -1,9 +1,4 @@
-import {
-  fullDate,
-  fullLang,
-  numberWithCommas,
-  runtime,
-} from "@/lib/utils";
+import { fullDate, fullLang, numberWithCommas, runtime } from "@/lib/utils";
 import { directors } from "../../lib/utils";
 import { PiQuestion } from "react-icons/pi";
 import Image from "next/image";
@@ -161,14 +156,18 @@ export default function MediaOverview({ media }: { media: Media }) {
                       <div className="flex flex-wrap gap-2">{detail.value}</div>
                     </div>
                   )
-                : null
+                : null,
             )}
           </div>
         </div>
       </div>
 
       {media.credits && media.credits?.cast?.length > 0 && (
-        <ContentCarousel items={media.credits.cast} title="Cast" type="person" />
+        <ContentCarousel
+          items={media.credits.cast}
+          title="Cast"
+          type="person"
+        />
       )}
     </>
   );

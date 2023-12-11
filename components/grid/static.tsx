@@ -12,9 +12,9 @@ export default function ContentGrid({
 }) {
   return (
     <ContentGridBase>
-      {items.map((item) =>
+      {items.map((item) => (
         <ContentCard item={item} type={type} />
-      )}
+      ))}
     </ContentGridBase>
   );
 }

@@ -1,6 +1,6 @@
-# NextJS 14 Starter 
+# NextJS 14 Starter
 
-This project demonstrates how to combine some cool techstacks for NextJS project and can be used as a starter project. 
+This project demonstrates how to combine some cool techstacks for NextJS project and can be used as a starter project.
 
 ## Stack details
 
@@ -12,24 +12,28 @@ This project demonstrates how to combine some cool techstacks for NextJS project
 - [Supabase] (https://supabase.com/) for Postgre headless server.
 
 #### Features:
+
 - Fully responsive.
 - Eslint setup.
 - Clean Architect project folder that can scalable (can easily add new feature or implement multi-tenant, multi-site feature).
 - Use Middleware for multi-features (movies is just one feature, you can add other features like shopping, blogs etc with similar structure and skeleton). Also multi-tenant, multi-sites is in TODO LIST.
 
 #### TODO LIST:
+
 - Add other modules (features) like: ecommerce, subscriptions, blogs, multi-tenant, multi-sites
 - Add social activities like: comment, like, favourite movies.
 - Add CRUD Admin for all data
 
 #### Credits:
+
 - https://github.com/ffw-hai-cao/nextjs-tmdb
 - https://github.com/ffw-manh-nguyen/rxp-nextjs-cinema-assignment
 - https://github.com/SudoKMaar/netflix-clone-nextjs
-  
+
 ## Deploy your own
 
 ### Install this repo
+
 Run the follow three commands to clone this repo and install its dependencies:
 
 ```
@@ -58,9 +62,9 @@ To create your OAuth app, follow these steps:
 
 ![Github Oauth Application Setup](./screenshots/github-oauth.png)
 
-| Application name               | Homepage URL                                       | Authorization callback URL |
-|--------------------------------|----------------------------------------------------|----------------------------|
-| NextJS Movie | https://github.com/hunghoxuan/nextjs-movie | http://localhost:3000/     |
+| Application name | Homepage URL                               | Authorization callback URL |
+| ---------------- | ------------------------------------------ | -------------------------- |
+| NextJS Movie     | https://github.com/hunghoxuan/nextjs-movie | http://localhost:3000/     |
 
 3. Copy the `GITHUB_ID` and `GITHUB_SECRET` and paste them into your environment variables on Vercel and in your `.env` file.
 

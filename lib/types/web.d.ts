@@ -7,7 +7,7 @@ export type UserProps = {
   role?: string | null;
   token?: string | null;
   login?: number | null;
-  randomKey?: string | null
+  randomKey?: string | null;
 } | null;
 
 export interface MenuLink {
@@ -21,15 +21,15 @@ export type MenuProps = {
   orientation: "horizontal" | "vertical";
   menus: MenuLink[];
   user?: UserProps;
-}
+};
 
 export type IconProps = {
   icon: string;
   active: boolean;
-}
+};
 
 export const IconEnum = {
-  HOME : "home",
+  HOME: "home",
   MOVIES: "movie",
   TV_SHOWS: "tv",
   SEARCH: "search",

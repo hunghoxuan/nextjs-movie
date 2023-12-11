@@ -8,7 +8,7 @@ export default function Videos({ media }: { media: Media }) {
   const type = searchParams.get("video") || "all";
   const types = [...new Set(media.videos?.results.map((v) => v.type))];
   const videos = media.videos?.results.filter(
-    (v) => type === "all" || v.type === type
+    (v) => type === "all" || v.type === type,
   );
 
   return (
@@ -36,9 +36,7 @@ export default function Videos({ media }: { media: Media }) {
 
       {media.videos?.results.length && (
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-4">
-          {videos?.map((video) => (
-            <VideoCard video={video} key={video.id} />
-          ))}
+          {videos?.map((video) => <VideoCard video={video} key={video.id} />)}
         </div>
       )}
     </div>

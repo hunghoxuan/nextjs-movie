@@ -9,7 +9,7 @@ import { getQuery } from "../../lib/tmdb.db";
 import { QueryItem } from "@/lib/types";
 import Image from "next/image";
 
-async function LoadMore({ page, query }: { page: number, query: QueryItem}) {
+async function LoadMore({ page, query }: { page: number; query: QueryItem }) {
   const { ref, inView } = useInView();
 
   const [data, setData] = useState<Media[]>([]);
@@ -37,7 +37,7 @@ async function LoadMore({ page, query }: { page: number, query: QueryItem}) {
   return (
     <>
       <section className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10">
-        { data.map((item) => (
+        {data.map((item) => (
           <ContentCard key={item.id} item={item} />
         ))}
       </section>
@@ -45,12 +45,12 @@ async function LoadMore({ page, query }: { page: number, query: QueryItem}) {
         <div ref={ref}>
           {inView && isLoading && (
             <Image
-            src="./spinner.svg"
-            alt="spinner"
-            width={56}
-            height={56}
-            className="object-contain"
-          />
+              src="./spinner.svg"
+              alt="spinner"
+              width={56}
+              height={56}
+              className="object-contain"
+            />
           )}
         </div>
       </section>

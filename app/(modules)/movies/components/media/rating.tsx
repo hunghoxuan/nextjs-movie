@@ -12,7 +12,7 @@ export default function Rating({ average }: { average: number }) {
           <PiStarFill key={index} />
         ) : (
           <PiStar key={index} />
-        )
+        ),
       )}
     </div>
   );

@@ -1,8 +1,8 @@
 export const MediaTypes = ["movie", "tv"] as const;
 export const PersonTypes = ["person"] as const;
 
-export type MediaType = typeof MediaTypes[number];
-export type PersonType = typeof PersonTypes[number];
+export type MediaType = (typeof MediaTypes)[number];
+export type PersonType = (typeof PersonTypes)[number];
 
 export interface Media {
   adult: boolean;
@@ -175,7 +175,7 @@ export interface Credits {
 }
 
 export type MovieProps = {
-  id: number|string;
+  id: number | string;
   title: string;
   overview: string;
   thumbnail: string;
@@ -184,4 +184,4 @@ export type MovieProps = {
   duration: number;
   votes?: number;
   age?: number;
-}
+};

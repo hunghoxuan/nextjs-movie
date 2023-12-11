@@ -27,7 +27,7 @@ declare module "next-auth" {
 declare module "next-auth/jwt" {
   interface JWT {
     userId: string;
-  } 
+  }
 }
 
 export const authOptions = {
@@ -63,7 +63,10 @@ export const authOptions = {
           return null;
         }
 
-        const user = userService.authenticate(credentials.email, credentials.password);
+        const user = userService.authenticate(
+          credentials.email,
+          credentials.password,
+        );
         return user;
       },
     }),
@@ -76,11 +79,11 @@ export const authOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
   ],
-  
+
   callbacks: {
-    async jwt({ token, account }) { 
+    async jwt({ token, account }) {
       if (account && account.type === "credentials") {
-        token.userId = account.providerAccountId; // this is Id that coming from authorize() callback 
+        token.userId = account.providerAccountId; // this is Id that coming from authorize() callback
       }
       return token;
     },
@@ -106,13 +109,13 @@ export async function getAuth(
   unstable_noStore();
   const session = await getServerSession(...args, authOptions);
 
-  return { 
-    user: session?.user && { 
+  return {
+    user: session?.user && {
       id: session.user.id,
       userId: session.user.id,
-      name: session.user.name, 
-      email: session.user.email, 
-      image: session.user.image 
+      name: session.user.name,
+      email: session.user.email,
+      image: session.user.image,
     },
     session: session,
   };
