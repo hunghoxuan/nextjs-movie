@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { tmdbService } from "./app/(web)/movies/lib/tmdb.db";
+import { service } from "./config";
 
 export const config = {
   matcher: [
@@ -15,9 +15,9 @@ export const config = {
 };
 
 export default async function middleware(req: NextRequest) {
-  const tmdbResponse = tmdbService.getMiddleware(req);
-  if (tmdbResponse)
-    return tmdbResponse;
+  const res = service.web.getResponse(req);
+  if (res)
+    return res;
   
   return NextResponse.next();
 }

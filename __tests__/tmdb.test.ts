@@ -1,5 +1,5 @@
 // jest implementation of the api
-import { getMedia } from "@/app/(web)/movies/lib/tmdb.db";
+import { getMedia } from "@/app/(modules)/movies/lib/tmdb.db";
 import { describe } from "node:test";
 
 describe("data-access", () => {

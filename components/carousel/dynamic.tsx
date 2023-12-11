@@ -1,4 +1,4 @@
-import { getQuery } from "@/app/(web)/movies/lib/tmdb.db";
+import { service } from "@/config";
 import ContentCarouselItems from "./_items";
 import { QueryItem } from "@/lib/types";
 import ContentCarouselBase from "./_base";
@@ -9,7 +9,7 @@ export default async function ContentCarouselDynamic({
 }: {
   query: QueryItem;
 }) {
-  const data = await getQuery(query);
+  const data = await service.db.query(query);
 
   return (
     <ContentCarouselBase

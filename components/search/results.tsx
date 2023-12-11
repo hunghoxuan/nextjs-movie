@@ -1,15 +1,15 @@
-import { getSearch } from "@/app/(web)/movies/lib/tmdb.db";
+import { service } from "@/config";
 import ContentGrid from "@/components/grid/static";
 import Pagination from "@/components/ui/pagination";
 
 export default async function SearchResults({
   query,
-  page = "1",
+  page = 1,
 }: {
   query: string;
-  page?: string;
+  page?: number;
 }) {
-  const data = await getSearch(query, page);
+  const data = await service.db.search({ query }, page);
 
   return (
     <>

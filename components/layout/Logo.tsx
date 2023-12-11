@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { mainMenu } from "@/config/web";
+import { mainMenu } from "@/config";
 import Link from "next/link";
 
 export default function Logo( { className }: { className?: string } ) {
