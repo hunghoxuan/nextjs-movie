@@ -31,6 +31,7 @@ This project demonstrates how to combine some cool techstacks for NextJS project
 
 ### Install this repo
 Run the follow three commands to clone this repo and install its dependencies:
+
 ```
 git clone https://github.com/hunghoxuan/nextjs-movie.git
 cd nextjs-movie
@@ -41,14 +42,13 @@ npm i && npm run dev
 
 ### Create a `.env.local` file
 
-This project uses several secrets to access the different accounts used throughout the codebase. You can configure these values locally by copying the `.env.example` file to a new file called `.env` and filling out the values as you receive them in the steps below.
+You can configure these values locally by copying the `.env.example` file to a new file called `.env` and filling out the values as you receive them in the steps below.
 
-Also, don't forget to add the values to the project's environment variables in production on Vercel.
+### Demo account
 
+User can use demo accounts defined in .env.local DEMO_USER key to login.
 
 ### GitHub OAuth setup
-
-End users of this video course application can authenticate with their GitHub account. As a prerequisite, you'll need to create an OAuth App on GitHub that associates a user's access to your application with your GitHub account.
 
 To create your OAuth app, follow these steps:
 
@@ -65,7 +65,3 @@ To create your OAuth app, follow these steps:
 3. Copy the `GITHUB_ID` and `GITHUB_SECRET` and paste them into your environment variables on Vercel and in your `.env` file.
 
 > Note: when you deploy a production copy of this application, you'll need to create another GitHub OAuth app which uses your production URL as the "Authorization callback URL" value.
-
-### Demo account
-
-User can use demo accounts admin/admin or user/user to login.
