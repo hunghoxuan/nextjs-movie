@@ -33,6 +33,9 @@ export const getListItem = (type: MediaType, query: Query) =>
 
 export const api = axios.create({
   baseURL: apiUrl,
+  headers: {
+    'Content-Type': 'application/json',
+  },
   params: {
     api_key: process.env.TMDB_API_KEY,
   },
