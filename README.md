@@ -24,12 +24,6 @@ This project demonstrates how to combine some cool techstacks for NextJS project
 - Add social activities like: comment, like, favourite movies.
 - Add CRUD Admin for all data
 
-#### Credits:
-
-- https://github.com/ffw-hai-cao/nextjs-tmdb
-- https://github.com/ffw-manh-nguyen/rxp-nextjs-cinema-assignment
-- https://github.com/SudoKMaar/netflix-clone-nextjs
-
 ## Deploy your own
 
 ### Install this repo
